@@ -6,8 +6,8 @@ String trafficLight1 = "RED";
 String trafficLight2 = "RED";
 
 void stateMachineSetup() {
-  buttonSetup(4);
-  buttonSetup(8);
+  buttonSetup(TRAFFIC_LIGTH1_DATA_PIN);
+  buttonSetup(TRAFFIC_LIGHT2_DATA_PIN);
   ledControlSetup();
 
   // set traffic lights to red

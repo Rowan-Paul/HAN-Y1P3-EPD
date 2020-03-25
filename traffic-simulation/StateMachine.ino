@@ -1,24 +1,34 @@
+const int TRAFFIC_LIGHT1_DATA_PIN = 4;
+const int TRAFFIC_LIGHT2_DATA_PIN = 8;
+
+// state of traffic lights
+String trafficLight1 = "RED";
+String trafficLight2 = "RED";
+
+int greenLightInterval = 50000;
+unsigned long int greenLightTimer = 0 - greenLightInterval;
+
 void stateMachineSetup() {
   buttonSetup(4);
   buttonSetup(8);
   ledControlSetup();
+
+  // set traffic lights to red
+  setTrafficLightRed("trafficLight1");
+  setTrafficLightOrange("trafficLight2");
 }
 
 void stateMachineLoop() {
-  if (buttonPressed(4)) {
-    // check if all other lights are red and change light to green
-    Serial.println("Button 1 presssed");
-    ledControlSetLedOn(5);
-    ledControlSetLedOff(7);
-  } else if (buttonPressed(8)) {
-    // check if all other lights are red and change light to green
-    Serial.println("Button 2 pressed");
-    ledControlSetLedOn(9);
-    ledControlSetLedOff(11);
-  } else {
-    ledControlSetLedOff(5);
-    ledControlSetLedOn(7);
-    ledControlSetLedOff(9);
-    ledControlSetLedOn(11);
+  if (checkTrafficLightsRed()) {
+    // check if a button is pressed
+    if (buttonPressed(TRAFFIC_LIGHT1_DATA_PIN)) {
+      setTrafficLightGreen("trafficLight1");
+
+      //Serial.println("Button 1 pressed");
+    } else if (buttonPressed(TRAFFIC_LIGHT2_DATA_PIN)) {
+      setTrafficLightGreen("trafficLight2");
+
+      //Serial.println("Button 2 pressed");
+    }
   }
 }

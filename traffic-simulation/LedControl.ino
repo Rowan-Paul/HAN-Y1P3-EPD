@@ -1,5 +1,5 @@
 const int LEDPINSIZE = 8;
-const int LEDPINARRAY [LEDPINSIZE] = {5,6,7,9,10,11};
+const int LEDPINARRAY [LEDPINSIZE] = {5, 6, 7, 9, 10, 11};
 
 void ledControlSetup() {
   for (int ledNumber = 0; ledNumber < LEDPINSIZE; ledNumber++) {
@@ -15,13 +15,13 @@ void ledControlSetLedOff(int ledNumber) {
   digitalWrite(ledNumber, LOW);
 }
 
-void ledControlAllLedsOn() {
+void ledControlSetAllLedsOn() {
   for (int ledNumber = 0; ledNumber < LEDPINSIZE; ledNumber++) {
     digitalWrite(LEDPINARRAY[ledNumber], HIGH);
   }
 }
 
-void ledControlAllLedsOff() {
+void ledControlSetAllLedsOff() {
   for (int ledNumber = 0; ledNumber < LEDPINSIZE; ledNumber++) {
     digitalWrite(LEDPINARRAY[ledNumber], LOW);
   }

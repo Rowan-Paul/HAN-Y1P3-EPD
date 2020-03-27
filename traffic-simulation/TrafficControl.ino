@@ -19,8 +19,9 @@ void countdownDisplay() {
     counter++;
     shiftSetPattern(FONTS[counter-1]);
     if (counter == 8) {
-      currentStatePedestrianCrossing = 3;
       counter = 0;
+      shiftSetAllOff();
+      currentStatePedestrianCrossing = 3;
     }
   }
 }

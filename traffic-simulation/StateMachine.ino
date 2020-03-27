@@ -33,7 +33,7 @@ void stateMachineSetup() {
   shiftSetup();
 }
 
-void stateMachineLoop() {
+void stateMachineLoop() {  
   // Pedestrian crossing
   switch (currentStatePedestrianCrossing) {
     case 1:
@@ -50,7 +50,7 @@ void stateMachineLoop() {
     case 3:
       servoWrite(0);
       buzzerSlowSound();
-      shiftSetAllOff();
+      shiftSetPattern(B11101001);
   }
 
   if (buttonPressed(PEDESTRIAN_CROSSING_DATA_PIN) && checkTrafficLightsRed()) {
